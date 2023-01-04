@@ -1,0 +1,22 @@
+- kind: argoproj.io/v1alpha1/applications
+  port:
+   entity:
+     mappings:
+      - identifier: .metadata.name + "-" + .metadata.namespace
+        blueprint: '"ArgoApp"'
+        properties:
+          ArgoProject: .spec.project
+        relations:
+          namespace: .metadata.namespace
+          services: .metadata.namespace as $namespace | .status.resources | map(select(.kind == "Service") | .name + "-" + $namespace)
+          deployments: .metadata.namespace as $namespace | .status.resources | map(select(.kind == "Deployment") | .name + "-" + $namespace)
+          project: .spec.project + "-" + .metadata.namespace
+
+- kind: argoproj.io/v1alpha1/appproject
+  port:
+    entity:
+      mappings:
+        - identifier: .metadata.name + "-" + .metadata.namespace
+          properties:
+            name: .metadata.name
+            title: .metadata.name

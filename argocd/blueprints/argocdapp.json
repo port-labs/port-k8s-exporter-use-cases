@@ -1,0 +1,30 @@
+{
+  "identifier": "argocdApp",
+  "description": "This blueprint represents a ArgoCD Application",
+  "title": "ArgoCD App",
+  "icon": "Microservice",
+  "schema": {
+    "properties": {},
+    "required": []
+  },
+  "mirrorProperties": {},
+  "calculationProperties": {},
+  "relations": {
+    "services": {
+      "target": "Service",
+      "required": false,
+      "many": true
+    },
+    "deployments": {
+      "target": "Deployment",
+      "required": false,
+      "many": true
+    },
+    "project": {
+      "title": "Project",
+      "target": "argocdProject",
+      "required": true,
+      "many": false
+    }
+  }
+}
