@@ -1,10 +1,27 @@
 {
   "identifier": "argocdApp",
-  "description": "This blueprint represents a ArgoCD Application",
+  "description": "This blueprint represents a service in our software catalog",
   "title": "ArgoCD App",
   "icon": "Microservice",
   "schema": {
-    "properties": {},
+    "properties": {
+      "status": {
+        "type": "string"
+      },
+      "syncStatus": {
+        "type": "string"
+      },
+      "gitRepo": {
+        "type": "string",
+        "format": "url"
+      },
+      "gitPath": {
+        "type": "string"
+      },
+      "gitRev": {
+        "type": "string"
+      }
+    },
     "required": []
   },
   "mirrorProperties": {},
