@@ -1,0 +1,32 @@
+{
+  "identifier": "gateways",
+  "description": "This blueprint represents a service in our software catalog",
+  "title": "Istio Gateways",
+  "icon": "Cloud",
+  "schema": {
+    "properties": {
+      "name": {
+        "type": "string"
+      },
+      "ports": {
+        "type": "array"
+      },
+      "labels": {
+        "type": "object"
+      },
+      "selector": {
+        "type": "object"
+      }
+    },
+    "required": []
+  },
+  "mirrorProperties": {},
+  "calculationProperties": {},
+  "relations": {
+    "namespace": {
+      "target": "Namespace",
+      "required": true,
+      "many": false
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "identifier": "virtualServices",
+  "description": "This blueprint represents a service in our software catalog",
+  "title": "Virtual Services",
+  "icon": "Istio",
+  "schema": {
+    "properties": {
+      "hosts": {
+        "type": "array"
+      },
+      "match": {
+        "type": "array"
+      },
+      "labels": {
+        "type": "object"
+      }
+    },
+    "required": []
+  },
+  "mirrorProperties": {},
+  "calculationProperties": {},
+  "relations": {
+    "gateways": {
+      "target": "gateways",
+      "required": true,
+      "many": true
+    },
+    "services": {
+      "target": "Service",
+      "required": false,
+      "many": true
+    }
+  }
+}
